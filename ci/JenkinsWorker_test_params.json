@@ -1,0 +1,9 @@
+{
+  "Parameters": {
+      "KeyName": "avSSH",
+      "SSHLocation": "0.0.0.0/0",
+      "InstanceType": "t2.medium",
+      "GitUrl": "https://github.com/vonnetworking/aws_jenkins_worker.git",
+      "BootstrapProvider": "ansible"
+    }
+}

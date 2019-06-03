@@ -1,0 +1,16 @@
+---
+# tasks file for my_dev_box
+
+- debug:
+    msg: "Executing Role {{ role_name }}"
+
+- name: "install desired python packages"
+    pip:
+      name:
+        - awscli
+        - flask
+        - pytest
+        - snakeviz
+        - virtualenv
+        - cfn-lint
+- name: ""

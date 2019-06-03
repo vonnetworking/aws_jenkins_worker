@@ -1,0 +1,22 @@
+[
+  {
+      "ParameterKey":"KeyName",
+      "ParameterValue":"avSSH"
+  },
+  {
+      "ParameterKey":"SSHLocation",
+      "ParameterValue":"0.0.0.0/0"
+  },
+  {
+      "ParameterKey":"InstanceType",
+      "ParameterValue":"t2.micro"
+  },
+  {
+      "ParameterKey":"GitUrl",
+      "ParameterValue":"https://github.com/vonnetworking/aws_dev_env.git"
+  },
+  {
+      "ParameterKey":"BootstrapProvider",
+      "ParameterValue":"ansible"
+  }
+]

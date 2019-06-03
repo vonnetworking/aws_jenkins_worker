@@ -1,0 +1,8 @@
+global:
+  regions:
+    - us-east-2
+    - us-east-1
+tests:
+  public:
+    parameter_input: aws-vpc-public.json
+    template_file: aws-vpc.template

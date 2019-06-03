@@ -1,4 +1,4 @@
-SEQ=001
+SEQ=002
 EC2TYPE=t2.medium
 #PUBLIC_IP := $(shell curl ipecho.net/plain)
 PUBLIC_IP=0.0.0.0

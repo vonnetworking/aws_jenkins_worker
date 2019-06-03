@@ -13,14 +13,32 @@
       - snakeviz
       - virtualenv
       - cfn-lint
+
+- name: "override package manager due to bug in ansible 2.8"
+  set_fact:
+    ansible_facts:
+      pkg_mgr: yum
+
+- name: Install EPEL repo.
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
+    state: present
+
+- name: Import EPEL GPG key.
+  rpm_key:
+    key: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+    state: present
+
 - name: "Install yum packages"
   yum:
     name:
+      - nodejs
+      - npm
       - java
       - ruby24
       - ruby24-devel
-      - python3
       - java-1.8.0
+      - python36
       - zlib-devel
       - gcc
       - gcc-c++
@@ -48,6 +66,16 @@
     path: /opt/jenkins
     state: directory
     owner: jenkins
+    group: ec2-user
+    mode: '0775'
 
 - name: "Configure default AWS region (us-east-1)"
-  command: "aws configure region us-east-1"
+  command: "aws configure set region us-east-1"
+  become: yes
+  become_user: ec2-user
+
+- name: "Link AWS exec into /usr/local/bin"
+  file:
+    src: '/usr/bin/aws'
+    dest: '/usr/local/bin/aws'
+    state: link

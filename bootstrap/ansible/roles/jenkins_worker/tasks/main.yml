@@ -85,3 +85,9 @@
     src: '/usr/bin/node'
     dest: '/usr/local/bin/node'
     state: link
+
+- name: "Link npm exec into /usr/local/bin"
+  file:
+    src: '/usr/bin/npm'
+    dest: '/usr/local/bin/npm'
+    state: link

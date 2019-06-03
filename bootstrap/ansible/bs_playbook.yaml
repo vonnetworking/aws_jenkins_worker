@@ -8,4 +8,4 @@
 - name: Setup Dev box using standard role
   hosts: 127.0.0.1
   roles:
-    - { role: roles/my_dev_box }
+    - { role: roles/jenkins_worker }

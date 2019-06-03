@@ -96,16 +96,10 @@ Resources:
               git: []
           commands:
             ansibleInstall:
-              command: !Sub |
-                "sudo pip install ansible"
+              command: "sudo pip install ansible"
 
               env:
                 TESTVAR: "i am a var"
-              cwd: "~"
-            downloadConfig:
-              command: "git clone $GITURL /home/ec2-user/scripts"
-              env:
-                GITURL: !Ref GitUrl
               cwd: "~"
             runBootstrap:
               command: !Base64
@@ -115,6 +109,12 @@ Resources:
                     - 'scripts/bootstrap/'
                     - !Ref BootstrapProvider
                     - '/bs_wrapper.bash'
+            downloadConfig:
+              command: "git clone $GITURL /opt/scripts"
+              env:
+                GITURL: !Ref GitUrl
+              cwd: "~"
+
 
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
@@ -122,8 +122,8 @@ Resources:
       GroupDescription: Enable SSH access
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: '22'
-          ToPort: '22'
+          FromPort: 22
+          ToPort: 22
           CidrIp: !Ref SSHLocation
   IPAddress:
     Type: 'AWS::EC2::EIP'

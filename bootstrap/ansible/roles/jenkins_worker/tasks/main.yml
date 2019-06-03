@@ -1,5 +1,5 @@
 ---
-# tasks file for my_dev_box
+# tasks file for jenkins_worker
 
 - debug:
     msg: "Executing Role {{ role_name }}"
@@ -13,4 +13,37 @@
         - snakeviz
         - virtualenv
         - cfn-lint
-- name: ""
+- name: "Install yum packages"
+    yum:
+      name:
+        - java
+        - ruby24
+        - ruby24-devel
+        - python3
+        - java-1.8.0
+        - zlib-devel
+        - gcc
+        - gcc-c++
+        - ruby-devel
+        - rubygems
+
+- name: "Update ruby mapping to proper version (2.4)"
+  command: "sudo alternatives --set ruby /usr/bin/ruby2.4"
+
+- name: "Remove Java 1.7"
+  yum:
+    name:
+      - java-1.7.0-openjdk
+    state: removed
+
+- name: "Create Jenkins user"
+    user:
+      name: jenkins
+      comment: "Jenkins slave user"
+      home: /home/jenkins
+      shell: /bin/bash
+
+- name: Create /opt/jenkins directory
+  file:
+    path: /opt/jenkins
+    state: directory

@@ -5,27 +5,27 @@
     msg: "Executing Role {{ role_name }}"
 
 - name: "install desired python packages"
-    pip:
-      name:
-        - awscli
-        - flask
-        - pytest
-        - snakeviz
-        - virtualenv
-        - cfn-lint
+  pip:
+    name:
+      - awscli
+      - flask
+      - pytest
+      - snakeviz
+      - virtualenv
+      - cfn-lint
 - name: "Install yum packages"
-    yum:
-      name:
-        - java
-        - ruby24
-        - ruby24-devel
-        - python3
-        - java-1.8.0
-        - zlib-devel
-        - gcc
-        - gcc-c++
-        - ruby-devel
-        - rubygems
+  yum:
+    name:
+      - java
+      - ruby24
+      - ruby24-devel
+      - python3
+      - java-1.8.0
+      - zlib-devel
+      - gcc
+      - gcc-c++
+      - ruby-devel
+      - rubygems
 
 - name: "Update ruby mapping to proper version (2.4)"
   command: "sudo alternatives --set ruby /usr/bin/ruby2.4"
@@ -37,11 +37,11 @@
     state: removed
 
 - name: "Create Jenkins user"
-    user:
-      name: jenkins
-      comment: "Jenkins slave user"
-      home: /home/jenkins
-      shell: /bin/bash
+  user:
+    name: jenkins
+    comment: "Jenkins slave user"
+    home: /home/jenkins
+    shell: /bin/bash
 
 - name: "Create /opt/jenkins directory"
   file:

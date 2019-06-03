@@ -9,7 +9,8 @@ create:
 	#																				ParameterKey=SSHLocation,ParameterValue=$(PUBLIC_IP)/0 \
 	#																				ParameterKey=InstanceType,ParameterValue=$(EC2TYPE)
 	aws cloudformation create-stack --template-body file://./JenkinsWorker.yaml \
-		--stack-name JenkinsWorker-${SEQ} --parameters file://./params/JenkinsWorker_test_params.json
+		--stack-name JenkinsWorker-${SEQ} --parameters file://./params/JenkinsWorker_test_params.json \
+		--capabilities CAPABILITY_IAM
 
 delete:
 	aws cloudformation delete-stack --stack-name JenkinsWorker

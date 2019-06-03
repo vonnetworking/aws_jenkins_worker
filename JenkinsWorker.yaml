@@ -77,6 +77,7 @@ Resources:
             - !Ref 'AWS::Region'
             - |+
       InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref JwInstanceProfile
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       KeyName: !Ref KeyName
@@ -114,8 +115,12 @@ Resources:
               env:
                 GITURL: !Ref GitUrl
               cwd: "~"
-
-
+  JwInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Path: /
+      Roles:
+        - LzAdmin
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:

@@ -43,7 +43,11 @@
       home: /home/jenkins
       shell: /bin/bash
 
-- name: Create /opt/jenkins directory
+- name: "Create /opt/jenkins directory"
   file:
     path: /opt/jenkins
     state: directory
+    owner: jenkins
+
+- name: "Configure default AWS region (us-east-1)"
+  command: "aws configure region us-east-1"

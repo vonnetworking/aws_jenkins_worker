@@ -79,3 +79,9 @@
     src: '/usr/bin/aws'
     dest: '/usr/local/bin/aws'
     state: link
+
+- name: "Link node exec into /usr/local/bin"
+  file:
+    src: '/usr/bin/node'
+    dest: '/usr/local/bin/node'
+    state: link

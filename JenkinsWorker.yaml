@@ -105,9 +105,11 @@ Resources:
             runBootstrap:
               command: !Base64
                 'Fn::Join':
-                  - ''
+                  - '/'
                   - - |
-                    - 'scripts/bootstrap/'
+                    - '/opt
+                    - scripts
+                    - bootstrap'
                     - !Ref BootstrapProvider
                     - '/bs_wrapper.bash'
             downloadConfig:

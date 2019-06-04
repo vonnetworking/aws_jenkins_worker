@@ -103,15 +103,7 @@ Resources:
                 TESTVAR: "i am a var"
               cwd: "~"
             runBootstrap:
-              command: !Base64
-                'Fn::Join':
-                  - '/'
-                  - - |
-                    - '/opt
-                    - scripts
-                    - bootstrap'
-                    - !Ref BootstrapProvider
-                    - '/bs_wrapper.bash'
+              command: "sudo /opt/scripts/bootstrap/ansible/bs_wrapper.bash"
             downloadConfig:
               command: "git clone $GITURL /opt/scripts"
               env:

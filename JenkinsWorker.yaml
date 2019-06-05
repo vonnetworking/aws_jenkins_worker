@@ -98,7 +98,7 @@ Resources:
               git: []
           commands:
             ansibleInstall:
-              command: "sudo pip install ansible"
+              command: "pip install ansible"
               env:
                 TESTVAR: "i am a var"
               cwd: "~"

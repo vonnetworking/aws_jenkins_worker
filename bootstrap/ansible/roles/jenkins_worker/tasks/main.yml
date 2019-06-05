@@ -19,15 +19,6 @@
     ansible_facts:
       pkg_mgr: yum
 
-- name: Download EPEL repository setup script
-  get_url:
-    url: https://rpm.nodesource.com/setup_8.x
-    dest: /tmp/setup_epel.sh
-    mode: '0777'
-
-- name: "Install / setup EPEL Repo"
-  command: "/tmp/setup_epel.sh"
-
 - name: "Install yum packages"
   yum:
     name:
@@ -43,6 +34,7 @@
       - gcc-c++
       - ruby-devel
       - rubygems
+    enablerepo: epel
 
 - name: "Update ruby mapping to proper version (2.4)"
   command: "sudo alternatives --set ruby /usr/bin/ruby2.4"

@@ -44,7 +44,7 @@
   gem:
     name: cfn-nag
     state: present
-    become: true
+    force: true
 
 - name: "Create Jenkins user"
   user:

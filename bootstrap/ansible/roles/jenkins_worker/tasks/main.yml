@@ -31,8 +31,11 @@
       - ruby-devel
 
 - name: "Update ruby mapping to proper version (2.4)"
-  command: "sudo alternatives --set ruby /usr/bin/ruby2.4"
-
+  command: "alternatives --set ruby /usr/bin/ruby2.4"
+  become: true
+  become_user: root
+  become_method: sudo
+  
 - name: "Remove Java 1.7"
   yum:
     name:

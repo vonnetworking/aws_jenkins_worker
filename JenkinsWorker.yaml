@@ -93,12 +93,12 @@ Resources:
         config:
           packages:
             yum:
-              python27-pip: []
+              python-pip: []
+              python3-pip: []
               git: []
           commands:
             ansibleInstall:
               command: "sudo pip install ansible"
-
               env:
                 TESTVAR: "i am a var"
               cwd: "~"

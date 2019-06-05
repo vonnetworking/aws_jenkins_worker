@@ -82,3 +82,17 @@
     src: '/usr/bin/npm'
     dest: '/usr/local/bin/npm'
     state: link
+
+- name: "Grab pipeline scripts to /opt/jenkins/scripts directory"
+  git:
+    repo: '{{ pipeline_script_repo }}'
+    dest: /opt/jenkins/scripts
+
+- name: "Update permissions on all pipeline scripts"
+  file:
+    path: /opt/jenkins/scripts
+    state: directory
+    mode: 0744
+    owner: jenkins
+    group: ec2-user
+  

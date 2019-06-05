@@ -74,7 +74,7 @@
   gem:
     name: cfn-nag
     state: present
-    
+
 # - name: "Link AWS exec into /usr/local/bin"
 #   file:
 #     src: '/usr/bin/aws'
@@ -97,6 +97,7 @@
   git:
     repo: '{{ pipeline_script_repo }}'
     dest: /opt/jenkins/scripts
+    force: yes
 
 - name: "Update permissions on all pipeline scripts"
   file:

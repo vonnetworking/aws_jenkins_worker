@@ -1,15 +1,9 @@
-SEQ=004
 EC2TYPE=t2.medium
 #PUBLIC_IP := $(shell curl ipecho.net/plain)
 PUBLIC_IP=0.0.0.0
 create:
-	echo $(PUBLIC_IP)
-	#aws cloudformation create-stack --template-body file://./cf/devBox.yaml \
-	#--stack-name $(USER)devBox --parameters ParameterKey=KeyName,ParameterValue=avSSH \
-	#																				ParameterKey=SSHLocation,ParameterValue=$(PUBLIC_IP)/0 \
-	#																				ParameterKey=InstanceType,ParameterValue=$(EC2TYPE)
 	aws cloudformation create-stack --template-body file://./JenkinsWorker.yaml \
-		--stack-name JenkinsWorker-${SEQ} --parameters file://./params/JenkinsWorker_test_params.json \
+		--stack-name JenkinsWorker --parameters file://./params/JenkinsWorker_params.json \
 		--capabilities CAPABILITY_IAM
 
 delete:

@@ -6,4 +6,4 @@
 
 cd "$(dirname "$0")"
 
-/usr/local/bin/ansible-playbook ./bs_playbook.yaml
+/usr/bin/ansible-playbook ./bs_playbook.yaml

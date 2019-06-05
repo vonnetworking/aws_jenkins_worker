@@ -55,6 +55,7 @@
       - gcc-c++
       - ruby-devel
       - redhat-rpm-config
+    lock_timeout: 600
 
 - name: "Remove Java 1.7"
   yum:

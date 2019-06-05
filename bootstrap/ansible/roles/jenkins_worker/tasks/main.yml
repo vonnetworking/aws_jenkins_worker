@@ -40,10 +40,6 @@
   become: yes
   become_user: root
 
--name: "Sleep for 60 seconds to avoid yum lock pile-up..."
- pause:
-   seconds: 60
-
 - name: "Install yum packages"
   yum:
     name:

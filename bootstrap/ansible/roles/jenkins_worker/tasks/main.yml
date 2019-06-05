@@ -82,8 +82,9 @@
 
 - name: "Update permissions on all pipeline scripts"
   file:
-    path: /opt/jenkins/scripts
+    path: /opt/jenkins/scripts/
     state: directory
-    mode: 0744
+    mode: 0755
     owner: jenkins
     group: ec2-user
+    recurse: "yes"

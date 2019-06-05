@@ -103,7 +103,7 @@ Resources:
                 TESTVAR: "i am a var"
               cwd: "~"
             enableEpel:
-              command: "sudo amazon-linux-extras install epel"
+              command: "sudo amazon-linux-extras install epel ruby2.4"
               cwd: "~"
             downloadScripts:
               command: "git clone $GITURL /opt/scripts"

@@ -71,7 +71,7 @@
 - name: "Configure default AWS region (us-east-1)"
   command: "aws configure set region us-east-1"
   become: yes
-  become_user: ec2-user
+  become_user: root
 
 - name: "Link AWS exec into /usr/local/bin"
   file:

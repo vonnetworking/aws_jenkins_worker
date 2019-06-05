@@ -20,6 +20,29 @@
   set_fact:
     ansible_facts:
       pkg_mgr: yum
+- name: "Create Jenkins user"
+  user:
+    name: jenkins
+    comment: "Jenkins slave user"
+    home: /home/jenkins
+    shell: /bin/bash
+
+- name: "Create /opt/jenkins directory"
+  file:
+    path: /opt/jenkins
+    state: directory
+    owner: jenkins
+    group: ec2-user
+    mode: '0775'
+
+- name: "Configure default AWS region (us-east-1)"
+  command: "aws configure set region us-east-1"
+  become: yes
+  become_user: root
+
+-name: "Sleep for 60 seconds to avoid yum lock pile-up..."
+ pause:
+   seconds: 60
 
 - name: "Install yum packages"
   yum:
@@ -45,26 +68,6 @@
     name: cfn-nag
     state: present
     force: true
-
-- name: "Create Jenkins user"
-  user:
-    name: jenkins
-    comment: "Jenkins slave user"
-    home: /home/jenkins
-    shell: /bin/bash
-
-- name: "Create /opt/jenkins directory"
-  file:
-    path: /opt/jenkins
-    state: directory
-    owner: jenkins
-    group: ec2-user
-    mode: '0775'
-
-- name: "Configure default AWS region (us-east-1)"
-  command: "aws configure set region us-east-1"
-  become: yes
-  become_user: root
 
 - name: "Link AWS exec into /usr/local/bin"
   file:

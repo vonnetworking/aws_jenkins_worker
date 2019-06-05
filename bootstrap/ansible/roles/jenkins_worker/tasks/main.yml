@@ -62,17 +62,19 @@
 
 - name: "Install bundler as a prereq to other ruby gems"
   gem:
-    - bundler
+    name: bundler
+    state: present
 
 - name: "Install Ruby Rdoc as a prereq to cfn_nag"
   gem:
-    - rdoc
+    name: rdoc
+    state: present
 
 - name: "Install CFN_NAG ruby gem"
   gem:
-    - cfn-nag
-  creates: /usr/local/bin/cfn_nag_scan
-
+    name: cfn-nag
+    state: present
+    
 # - name: "Link AWS exec into /usr/local/bin"
 #   file:
 #     src: '/usr/bin/aws'

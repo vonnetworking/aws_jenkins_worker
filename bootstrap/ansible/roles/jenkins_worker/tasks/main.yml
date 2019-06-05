@@ -30,7 +30,6 @@
       - gcc
       - gcc-c++
       - ruby-devel
-      - rubygems
     enablerepo: epel
 
 - name: "Update ruby mapping to proper version (2.4)"

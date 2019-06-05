@@ -93,7 +93,7 @@ Resources:
         config:
           packages:
             yum:
-              python26-pip: []
+              python27-pip: []
               git: []
           commands:
             ansibleInstall:

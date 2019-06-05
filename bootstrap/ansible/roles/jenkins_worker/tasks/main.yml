@@ -84,7 +84,7 @@
   file:
     path: /opt/jenkins/scripts/
     state: directory
-    mode: 0755
+    mode: 0777
     owner: jenkins
     group: ec2-user
     recurse: "yes"

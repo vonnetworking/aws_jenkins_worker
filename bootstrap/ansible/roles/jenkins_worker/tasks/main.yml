@@ -5,9 +5,10 @@
     msg: "Executing Role {{ role_name }}"
 
 - name: "install desired python packages"
-  pip:
+  pip3:
     name:
       - awscli
+      - boto3
       - flask
       - pytest
       - snakeviz

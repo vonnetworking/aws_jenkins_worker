@@ -24,9 +24,6 @@
     name:
       - nodejs
       - npm
-      - java
-      - ruby24
-      - ruby24-devel
       - java-1.8.0
       - python36
       - zlib-devel
@@ -43,6 +40,7 @@
   yum:
     name:
       - java-1.7.0-openjdk
+      - java-1.7.0
     state: removed
 
 - name: "Create Jenkins user"
@@ -95,4 +93,3 @@
     mode: 0744
     owner: jenkins
     group: ec2-user
-  

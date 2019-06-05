@@ -105,13 +105,13 @@ Resources:
             enableEpel:
               command: "sudo amazon-linux-extras install epel"
               cwd: "~"
-            runBootstrap:
-              command: "sudo /opt/scripts/bootstrap/ansible/bs_wrapper.bash"
-            downloadConfig:
+            downloadScripts:
               command: "git clone $GITURL /opt/scripts"
               env:
                 GITURL: !Ref GitUrl
               cwd: "~"
+            runBootstrap:
+              command: "sudo /opt/scripts/bootstrap/ansible/bs_wrapper.bash > /tmp/bootstrap.log"
   JwInstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:

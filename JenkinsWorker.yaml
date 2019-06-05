@@ -93,7 +93,7 @@ Resources:
         config:
           packages:
             yum:
-              python-pip: []
+              python2-pip: []
               python3-pip: []
               git: []
           commands:

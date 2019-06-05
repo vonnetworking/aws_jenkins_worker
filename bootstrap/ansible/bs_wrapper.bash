@@ -4,8 +4,6 @@
 # for changes to dev box configuration, simply update the my_dev_box role in the
 # roles/ subdirectory of this current path
 
-BOOTSTRAP_LOG="./bootstrap.log"
-
 cd "$(dirname "$0")"
 
-ansible-playbook ./bs_playbook.yaml > ${BOOTSTRAP_LOG}
+/usr/local/bin/ansible-playbook ./bs_playbook.yaml

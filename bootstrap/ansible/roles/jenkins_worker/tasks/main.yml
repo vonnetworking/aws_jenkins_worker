@@ -31,6 +31,7 @@
       - gcc
       - gcc-c++
       - ruby-devel
+      - redhat-rpm-config
 
 - name: "Remove Java 1.7"
   yum:
@@ -38,6 +39,12 @@
       - java-1.7.0-openjdk
       - java-1.7.0
     state: removed
+
+- name: "Install CFN_NAG gem"
+  gem:
+    name: cfn-nag
+    state: present
+    become: true
 
 - name: "Create Jenkins user"
   user:

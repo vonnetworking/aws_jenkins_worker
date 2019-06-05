@@ -35,11 +35,6 @@
     group: ec2-user
     mode: '0775'
 
-- name: "Configure default AWS region (us-east-1)"
-  command: "aws configure set region us-east-1"
-  become: yes
-  become_user: root
-
 - name: "Install yum packages"
   yum:
     name:
@@ -107,3 +102,13 @@
     owner: jenkins
     group: ec2-user
     recurse: "yes"
+
+- name: "Configure default AWS region (us-east-1)"
+  command: "aws configure set region us-east-1"
+  become: yes
+  become_user: jenkins
+
+- name: "Configure default AWS region (us-east-1)"
+  command: "aws configure set region us-east-1"
+  become: yes
+  become_user: ec2-user

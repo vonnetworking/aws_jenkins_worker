@@ -19,8 +19,14 @@
     ansible_facts:
       pkg_mgr: yum
 
-- name: Add repository
-  command: "curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -"
+- name: Download EPEL repository setup script
+  get_url:
+    url: https://rpm.nodesource.com/setup_8.x
+    dest: /opt/setup_epel.sh
+    mode: '0777'
+
+- name: "Install / setup EPEL Repo"
+  command: "/opt/setup_epel.sh"
 
 - name: "Install yum packages"
   yum:

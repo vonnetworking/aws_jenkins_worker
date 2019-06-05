@@ -25,12 +25,11 @@
       - nodejs
       - npm
       - java-1.8.0
-      - python36
       - zlib-devel
       - gcc
       - gcc-c++
       - ruby-devel
-      
+
 - name: "Update ruby mapping to proper version (2.4)"
   command: "sudo alternatives --set ruby /usr/bin/ruby2.4"
 

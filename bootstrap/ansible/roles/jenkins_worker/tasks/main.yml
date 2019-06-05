@@ -60,8 +60,18 @@
       - java-1.7.0
     state: removed
 
-- name: "Install CFN_NAG gem"
-  command: "gem install cfn-nag"
+- name: "Install bundler as a prereq to other ruby gems"
+  gem:
+    - bundler
+
+- name: "Install Ruby Rdoc as a prereq to cfn_nag"
+  gem:
+    - rdoc
+
+- name: "Install CFN_NAG ruby gem"
+  gem:
+    - cfn-nag
+  creates: /usr/local/bin/cfn_nag_scan
 
 # - name: "Link AWS exec into /usr/local/bin"
 #   file:

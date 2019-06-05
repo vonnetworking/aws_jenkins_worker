@@ -61,10 +61,7 @@
     state: removed
 
 - name: "Install CFN_NAG gem"
-  gem:
-    name: cfn-nag
-    state: present
-    force: true
+  command: "gem install cfn-nag"
 
 # - name: "Link AWS exec into /usr/local/bin"
 #   file:

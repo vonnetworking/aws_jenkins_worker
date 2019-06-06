@@ -55,6 +55,7 @@
       - java-1.7.0-openjdk
       - java-1.7.0
     state: removed
+    lock_timeout: 600
 
 - name: "Install bundler as a prereq to other ruby gems"
   gem:

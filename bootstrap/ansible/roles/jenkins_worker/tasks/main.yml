@@ -60,19 +60,19 @@
   gem:
     name: bundler
     state: present
-  user_install: no
+    user_install: no
 
 - name: "Install Ruby Rdoc as a prereq to cfn_nag"
   gem:
     name: rdoc
     state: present
-  user_install: no
+    user_install: no
 
 - name: "Install CFN_NAG ruby gem"
   gem:
     name: cfn-nag
     state: present
-  user_install: no
+    user_install: no
 
 # - name: "Link AWS exec into /usr/local/bin"
 #   file:

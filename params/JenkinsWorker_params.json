@@ -14,9 +14,5 @@
   {
     "ParameterKey": "GitUrl",
     "ParameterValue": "https://github.com/vonnetworking/aws_jenkins_worker.git"
-  },
-  {
-    "ParameterKey": "BootstrapProvider",
-    "ParameterValue":"ansible"
   }
 ]
